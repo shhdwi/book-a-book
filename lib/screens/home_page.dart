@@ -1,11 +1,19 @@
+import 'package:catalog_app/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Material(
-      child: Center(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Book a Book",
+        style: TextStyle(
+          fontFamily: "Poppins",
+          fontSize: 25,
+        ),),
+      ),
+      body: Center(
         child: Text(
             "Home Page",
           style: TextStyle(
@@ -15,6 +23,7 @@ class Homepage extends StatelessWidget {
           ),
         ),
       ),
+      drawer: MyDrawer(),
 
     );
     throw UnimplementedError();
