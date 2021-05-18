@@ -1,6 +1,8 @@
 import 'package:catalog_app/screens/home_page.dart';
 import 'package:catalog_app/services/auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -134,7 +136,7 @@ class _SignUpState extends State<SignUp> {
                               child: AnimatedContainer(
                                 duration: Duration(milliseconds: 200),
                                 width: 150,
-                                height: 50,
+                                height: 40,
 
                                 alignment: Alignment.center,
                                 child: Text(
@@ -155,7 +157,7 @@ class _SignUpState extends State<SignUp> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 20),
+                          SizedBox(width: 10),
                           // ElevatedButton(
                           //     child:
                           //     Text("Login"),
@@ -175,34 +177,7 @@ class _SignUpState extends State<SignUp> {
                           //     onPrimary: Colors.white,
                           //   )
                           //   ),
-                          Container(
 
-                            padding: const EdgeInsets.all(10.0),
-
-                            height: 50,
-                            alignment: Alignment.center,
-                            child: Text(
-                              "Sign Up Using Google",
-                              style: TextStyle(
-                                color: Colors.deepOrangeAccent,
-                                fontSize: 12,
-
-
-                                fontFamily: "Poppins",
-
-                                // fontWeight: FontWeight.bold,
-                              ),
-
-                            ),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.deepOrangeAccent, width: 2),
-
-
-                                color: Colors.white54,
-                                borderRadius: BorderRadius.circular(15)
-                            ),
-
-                          ),
                         ],
 
                       ),

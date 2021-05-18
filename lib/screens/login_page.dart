@@ -1,5 +1,9 @@
+import 'package:catalog_app/services/auth.dart';
+import 'package:catalog_app/services/google_auth.dart';
 import 'package:catalog_app/utils/routes.dart';
 import "package:flutter/material.dart";
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget{
   @override
@@ -7,10 +11,15 @@ class LoginPage extends StatefulWidget{
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  bool isLoadingGoogle = false;
+
   String name ="";
   bool changeBtn = false;
 
   final _formKey =GlobalKey<FormState>();
+
+
   moveToHome(BuildContext context)async{
     if (_formKey.currentState!.validate()){
       setState(() {
@@ -111,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                          child: AnimatedContainer(
                            duration: Duration(milliseconds: 200),
                            width: changeBtn ? 50:150,
-                           height: 50,
+                           height: 40,
 
                            alignment: Alignment.center,
                            child: changeBtn
@@ -133,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
 
                          ),
                        ),
-                       SizedBox(width: 20),
+                       SizedBox(width: 0),
                        // ElevatedButton(
                        //     child:
                        //     Text("Login"),
@@ -155,30 +164,44 @@ class _LoginPageState extends State<LoginPage> {
                        //   ),
                        Container(
 
-                         padding: const EdgeInsets.all(10.0),
+                         padding: const EdgeInsets.all(0.0),
 
-                         height: 50,
+                         height: 40,
                          alignment: Alignment.center,
-                         child: Text(
-                           "Sign In Using Google",
-                           style: TextStyle(
-                             color: Colors.deepOrangeAccent,
-                             fontSize: 12,
+                         child: OutlinedButton.icon(
+
+                           onPressed: (){
+                             AuthMethods().signInWithGoogle(context);
+                           },
+                           icon: FaIcon(FontAwesomeIcons.google, color: Colors.deepOrangeAccent),
+                           label: Text(
+                             "Sign In Using Google",
+                             style: TextStyle(
+                               color: Colors.deepOrangeAccent,
+                               fontSize: 10,
 
 
-                             fontFamily: "Poppins",
 
-                             // fontWeight: FontWeight.bold,
+                               fontFamily: "Poppins",
+
+                               // fontWeight: FontWeight.bold,
+                             ),
+
+                           ),
+                           style: OutlinedButton.styleFrom(
+                               elevation: 0,
+                               shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))
                            ),
 
                          ),
                          decoration: BoxDecoration(
-                             border: Border.all(color: Colors.deepOrangeAccent, width: 2),
+                             border: Border.all(color: Colors.deepOrangeAccent, width: 3),
 
 
                              color: Colors.white54,
                              borderRadius: BorderRadius.circular(15)
                          ),
+
 
                        ),
                      ],
