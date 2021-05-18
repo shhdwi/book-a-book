@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
            children: [
              SizedBox(height: 50.0),
              Text(
-               "Welcome $name",
+               "Welcome",
                style: TextStyle(
                  fontSize: 35,
                  fontFamily: "Poppins",
@@ -54,15 +54,15 @@ class _LoginPageState extends State<LoginPage> {
                child: Column(
                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                  children: [
-                   SizedBox(height: 100.0),
+                   SizedBox(height: 50.0),
                    TextFormField(
                      decoration: InputDecoration(
-                       hintText: "Enter Username",
-                       labelText: "Username",
+                       hintText: "Enter Email",
+                       labelText: "Email",
                      ),
                      validator: (value){
                        if (value!.isEmpty){
-                         return "Username cannot be empty";
+                         return "Email cannot be empty";
                        }
                        return null;
 
@@ -93,35 +93,115 @@ class _LoginPageState extends State<LoginPage> {
                        return null;
                      },
                    ),
+                   SizedBox(height: 5),
+                   Container(
+                     alignment: Alignment.centerRight,
+                     child: Container(
+                       padding: EdgeInsets.symmetric(horizontal: 16,vertical: 8),
+                       child: Text("Forgot Password?"),
+                     ),
+                   ),
                    SizedBox(height: 25.0),
-                   InkWell(
-                     onTap: () => moveToHome(context),
-                     child: AnimatedContainer(
-                       duration: Duration(milliseconds: 200),
-                       width: changeBtn ? 50:150,
-                       height: 50,
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                     children: [
+                       InkWell(
 
-                       alignment: Alignment.center,
-                       child: changeBtn
-                           ?Icon(Icons.done)
-                           :Text(
-                         "login",
-                         style: TextStyle(
-                           color: Colors.white,
-                           fontSize: 20,
-                           fontFamily: "Poppins",
-                           fontWeight: FontWeight.bold,
+                         onTap: () => moveToHome(context),
+                         child: AnimatedContainer(
+                           duration: Duration(milliseconds: 200),
+                           width: changeBtn ? 50:150,
+                           height: 50,
+
+                           alignment: Alignment.center,
+                           child: changeBtn
+                               ?Icon(Icons.done,color: Colors.white)
+                               :Text(
+                             "Sign In",
+                             style: TextStyle(
+                               color: Colors.white,
+                               fontSize: 12,
+                               fontFamily: "Poppins",
+                               // fontWeight: FontWeight.bold,
+                             ),
+
+                           ),
+                           decoration: BoxDecoration(
+                               color: Colors.deepOrangeAccent,
+                             borderRadius: BorderRadius.circular(changeBtn?50:15)
+                           ),
+
+                         ),
+                       ),
+                       SizedBox(width: 20),
+                       // ElevatedButton(
+                       //     child:
+                       //     Text("Login"),
+                       //     onPressed: (){},
+                       //     style: ElevatedButton.styleFrom(
+                       //       primary: Colors.deepOrangeAccent,
+                       //       onPrimary: Colors.white,
+                       //     )
+                       // ),
+                       // SizedBox(width: 15,),
+                       // ElevatedButton(
+                       //   child:
+                       //   Text("Sign Up"),
+                       //   onPressed: (){},
+                       //   style: ElevatedButton.styleFrom(
+                       //     primary: Colors.deepOrangeAccent,
+                       //     onPrimary: Colors.white,
+                       //   )
+                       //   ),
+                       Container(
+
+                         padding: const EdgeInsets.all(10.0),
+
+                         height: 50,
+                         alignment: Alignment.center,
+                         child: Text(
+                           "Sign In Using Google",
+                           style: TextStyle(
+                             color: Colors.deepOrangeAccent,
+                             fontSize: 12,
+
+
+                             fontFamily: "Poppins",
+
+                             // fontWeight: FontWeight.bold,
+                           ),
+
+                         ),
+                         decoration: BoxDecoration(
+                             border: Border.all(color: Colors.deepOrangeAccent, width: 2),
+
+
+                             color: Colors.white54,
+                             borderRadius: BorderRadius.circular(15)
                          ),
 
                        ),
-                       decoration: BoxDecoration(
-                           color: Colors.deepOrangeAccent,
-                         borderRadius: BorderRadius.circular(changeBtn?50:15)
+                     ],
+
+                   ),
+
+
+                   SizedBox(height: 25.0),
+                   Row(mainAxisAlignment: MainAxisAlignment.center,
+                     children: [
+                       Text("Don't have an account?",style: TextStyle(
+                         fontSize: 15,
                        ),
+                       ),
+                       SizedBox(width: 5,),
+                       Text("Register Now",style: TextStyle(
+                         fontSize: 15,
+                         decoration: TextDecoration.underline,
 
-                     ),
+                       )
+                       ),
+                     ],
                    )
-
                  ],
                ),
              ),
