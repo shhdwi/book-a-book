@@ -12,8 +12,8 @@ class AuthMethods{
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  getCurrentUser(){
-    return _auth.currentUser;
+  getCurrentUser()async{
+    return await _auth.currentUser;
   }
 
   UserData? _userFromFirebaseUser(User user){
@@ -22,10 +22,18 @@ class AuthMethods{
 
   Future signInWithEmailAndPassword(String email, String password) async {
     try {
-      User? firebaseUser = (await _auth.signInWithEmailAndPassword(email: email, password: password)).user;
-      return _userFromFirebaseUser(firebaseUser!);
-    } catch (e) {
-      print(e.toString());
+      User user =
+          (await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: email,
+            password: password,
+          )).user!;
+      return user;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
     }
   }
   Future signUpwithEmailandPassword(String email,String password) async{
@@ -39,6 +47,17 @@ class AuthMethods{
     }catch(e){
       print(e.toString());
 
+    }
+  }
+  Future SignOut() async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.clear();
+      final googleSignIn = GoogleSignIn();
+      await googleSignIn.disconnect();
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
     }
   }
   Future resetPass(String email) async{
@@ -86,16 +105,30 @@ class AuthMethods{
     Future signOut() async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.clear();
+      final googleSignIn = GoogleSignIn();
       await _auth.signOut();
+      await googleSignIn.disconnect();
     }
   }
-
-  Future SignOut() async{
-    try{
-      return await _auth.signOut();
-
-    }catch(e){
-      print(e.toString());
-    }
+  getUserCred() async{
+    final FirebaseAuth _firebaseAuth =FirebaseAuth.instance;
+    final GoogleSignIn _googleSignIn =GoogleSignIn();
+    final GoogleSignInAccount googleSignInAccount = (await _googleSignIn.signIn())!;
+    final GoogleSignInAuthentication googleSignInAuthentication = await googleSignInAccount.authentication;
+    final AuthCredential credential = GoogleAuthProvider.credential(
+      idToken: googleSignInAuthentication.idToken,
+      accessToken: googleSignInAuthentication.accessToken,
+    );
+    UserCredential result= await _firebaseAuth.signInWithCredential(credential);
+    User userDetails = result.user!;
+    Map<String, dynamic> userInfoMap = {
+      "email": userDetails.email,
+      "username": userDetails.email!.replaceAll("@gmail.com", ""),
+      "name": userDetails.displayName,
+      "imgUrl": userDetails.photoURL
+    };
+    return userInfoMap;
   }
-}
+
+
+  }

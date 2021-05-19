@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignUp extends StatefulWidget {
+  final Function toggle;
+  SignUp(this.toggle);
   @override
   _SignUpState createState() => _SignUpState();
 }
@@ -191,11 +193,19 @@ class _SignUpState extends State<SignUp> {
                           ),
                           ),
                           SizedBox(width: 5,),
-                          Text("Sign In",style: TextStyle(
-                            fontSize: 15,
-                            decoration: TextDecoration.underline,
+                          GestureDetector(
+                            onTap: (){
+                              widget.toggle();
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(vertical: 8),
+                              child: Text("Sign In",style: TextStyle(
+                                fontSize: 15,
+                                decoration: TextDecoration.underline,
 
-                          )
+                              )
+                              ),
+                            ),
                           ),
                         ],
                       )

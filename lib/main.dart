@@ -1,7 +1,10 @@
+import 'package:catalog_app/helper_functions/Authentication.dart';
 import 'package:catalog_app/screens/home_page.dart';
 import 'package:catalog_app/screens/login_page.dart';
 import 'package:catalog_app/screens/signup.dart';
+import 'package:catalog_app/services/auth.dart';
 import 'package:catalog_app/utils/routes.dart';
+import 'package:catalog_app/widgets/nav.dart';
 import 'package:catalog_app/widgets/themes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -18,15 +21,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      home: FutureBuilder(
+        future: AuthMethods().getCurrentUser(),
+        builder: (context , AsyncSnapshot<dynamic> snapshot){
+          if(snapshot.hasData){
+            return MyHomePage();
+          }else{
+            return Authenticate();
+          }
+        },
+      ),
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
 
-
-      initialRoute: "/",
       routes: {
-        "/": (context) => LoginPage(),
         MyRoutes.homeRoute:(context)=>Homepage(),
-        MyRoutes.loginRoute:(context)=>LoginPage(),
+        MyRoutes.loginRoute:(context)=>Authenticate(),
 
 
       },

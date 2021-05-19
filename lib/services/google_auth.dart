@@ -30,6 +30,7 @@ class GoogleSignInProvider extends ChangeNotifier {
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
+
       );
 
       await FirebaseAuth.instance.signInWithCredential(credential);
@@ -37,6 +38,7 @@ class GoogleSignInProvider extends ChangeNotifier {
       isSigningIn = false;
     }
   }
+
 
   void logout() async {
     await googleSignIn.disconnect();

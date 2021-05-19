@@ -7,6 +7,25 @@ class SharedPreferenceHelper {
   static String userEmailKey = "USEREMAILKEY";
   static String userProfilePicKey = "USERPROFILEPICKEY";
 
+  getDisplayNameValues() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //Return String
+    String stringValue = prefs.getString(displayNameKey)!;
+    return stringValue;
+  }
+  getEmailValues() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //Return String
+    String stringValue = prefs.getString(userEmailKey)!;
+    return stringValue;
+  }
+  getProfpicValues() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //Return String
+    String stringValue = prefs.getString(userProfilePicKey)!;
+    return stringValue;
+  }
+
   //save data
   Future<bool> saveUserName(String getUserName) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -59,4 +78,44 @@ class SharedPreferenceHelper {
     final imageURL = prefs.getString(userProfilePicKey);
     return imageURL;
   }
+}
+class HelperFunctions{
+
+  static String sharedPreferenceUserLoggedInKey = "ISLOGGEDIN";
+  static String sharedPreferenceUserNameKey = "USERNAMEKEY";
+  static String sharedPreferenceUserEmailKey = "USEREMAILKEY";
+
+  /// saving data to sharedpreference
+  static Future<bool> saveUserLoggedInSharedPreference(bool isUserLoggedIn) async{
+
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    return await preferences.setBool(sharedPreferenceUserLoggedInKey, isUserLoggedIn);
+  }
+
+  static Future<bool> saveUserNameSharedPreference(String userName) async{
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    return await preferences.setString(sharedPreferenceUserNameKey, userName);
+  }
+
+  static Future<bool> saveUserEmailSharedPreference(String userEmail) async{
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    return await preferences.setString(sharedPreferenceUserEmailKey, userEmail);
+  }
+
+  /// fetching data from sharedpreference
+  static Future<bool?> getUserLoggedInSharedPreference() async{
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    return await preferences.getBool(sharedPreferenceUserLoggedInKey);
+  }
+
+  static Future<String?> getUserNameSharedPreference() async{
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    return await preferences.getString(sharedPreferenceUserNameKey);
+  }
+
+  static Future<String?> getUserEmailSharedPreference() async{
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    return await preferences.getString(sharedPreferenceUserEmailKey);
+  }
+
 }
