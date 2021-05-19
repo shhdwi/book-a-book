@@ -28,6 +28,7 @@ class _SignUpState extends State<SignUp> {
       });
       authMethods.signUpwithEmailandPassword(emailTextEditingController.text, passwordTextEditingController.text).then((value){
         //print("${value.uid}");
+
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Homepage()
 
         ));

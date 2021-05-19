@@ -6,6 +6,7 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+
       appBar: AppBar(
         title: Text("Book a Book",
         style: TextStyle(

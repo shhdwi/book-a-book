@@ -1,4 +1,5 @@
 import 'package:catalog_app/helper_functions/Authentication.dart';
+import 'package:catalog_app/screens/add_product.dart';
 import 'package:catalog_app/screens/home_page.dart';
 import 'package:catalog_app/screens/login_page.dart';
 import 'package:catalog_app/screens/signup.dart';

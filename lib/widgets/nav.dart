@@ -1,10 +1,12 @@
 import 'package:catalog_app/helper_functions/Authentication.dart';
+import 'package:catalog_app/screens/add_product.dart';
 import 'package:catalog_app/screens/home_page.dart';
 import 'package:catalog_app/screens/sell.dart';
 import 'package:catalog_app/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
+
 
 var tstyle = TextStyle(color: Colors.white.withOpacity(0.6),
     fontSize: 50
@@ -29,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> pages = [
     Homepage(),
-    Homepage(),
+    AddImage(),
     Seller(),
     Homepage(),
   ];
@@ -38,11 +40,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         drawer: MyDrawer(),
         extendBody: true,
 
         body:PageView(
+            physics: NeverScrollableScrollPhysics(),
             controller: controller,
             children: pages,
             onPageChanged: (int index) {
@@ -88,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     icon: LineIcons.heart,
                     iconColor: Colors.black,
                     iconActiveColor: Colors.pink,
-                    text: "Products",
+                    text: "My Ads",
                     textColor: Colors.pink,
                     backgroundColor: Colors.pink.withOpacity(0.2),
                     iconSize: 24,

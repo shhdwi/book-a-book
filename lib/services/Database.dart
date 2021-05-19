@@ -9,6 +9,14 @@ class DatabaseMethods{
         .doc(userId)
         .set(userInfoMap);
     }
+  Future UploadItem(
+      String userId, Map<String, dynamic> ItemInfo)async{
+    return FirebaseFirestore.instance
+        .collection("items")
+        .doc(userId)
+        .set(ItemInfo);
+
+  }
 
   }
 
