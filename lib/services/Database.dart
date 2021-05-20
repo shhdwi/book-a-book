@@ -1,3 +1,7 @@
+import 'dart:ffi';
+
+import 'package:catalog_app/services/product_data.dart';
+import 'package:catalog_app/services/product_notifier.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -18,7 +22,20 @@ class DatabaseMethods{
 
   }
 
+
   }
+Future getProducts(ProductNotifier productNotifier) async{
+  QuerySnapshot snapshot = await FirebaseFirestore.instance.collection("items").get();
+
+  List<ProductData> productList = [];
+  snapshot.docs.forEach((element) {
+    print(element);
+    ProductData data = ProductData.fromMap(element.data() as Map<String,dynamic>);
+    productList.add(data);
+
+  });
+  productNotifier.productList =productList;
+}
 
 
 

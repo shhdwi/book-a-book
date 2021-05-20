@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:catalog_app/screens/add_product.dart';
 import 'package:catalog_app/services/Database.dart';
 import 'package:catalog_app/services/auth.dart';
+import 'package:catalog_app/utils/routes.dart';
 import 'package:catalog_app/widgets/themes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -31,17 +32,18 @@ class _SellerState extends State<Seller> {
   TextEditingController descTextEditingController = new TextEditingController();
   TextEditingController priceTextEditingController = new TextEditingController();
   Future UploadItem(
-      String userId, Map<String, dynamic> ItemInfo) async{
+      Map<String, dynamic> ItemInfo) async{
+    print(ItemInfo);
     return FirebaseFirestore.instance
         .collection("items")
-        .doc(userId)
-        .set(ItemInfo);
+        .add(ItemInfo);
 
   }
 
   UploadIt() async{
     if (formKey1.currentState!.validate()){
       UploadImage();
+      Navigator.popAndPushNamed(context, MyRoutes.productRoute );
 
 
     }
@@ -172,7 +174,9 @@ class _SellerState extends State<Seller> {
                                 Radius.circular(10)))
                     ),
 
+
                   ),
+                  SizedBox(height: 40,)
 
 
 
@@ -222,11 +226,13 @@ class _SellerState extends State<Seller> {
     await AuthMethods().getUserCred().then((snapshot){
 
       Map<String, dynamic> itemInfo = {
+        "name":snapshot["name"],
+        "email":snapshot["email"],
         "desc": descTextEditingController.text,
         "imageurl": value,
         "price": priceTextEditingController.text,
         "title": titleTextEditingController.text};
-        UploadItem(snapshot["email"], itemInfo);
+        UploadItem(itemInfo);
       });
     });
   });
