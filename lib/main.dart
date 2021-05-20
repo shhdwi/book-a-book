@@ -1,5 +1,6 @@
 import 'package:catalog_app/helper_functions/Authentication.dart';
 import 'package:catalog_app/screens/add_product.dart';
+import 'package:catalog_app/screens/display_page.dart';
 import 'package:catalog_app/screens/home_page.dart';
 import 'package:catalog_app/screens/login_page.dart';
 import 'package:catalog_app/screens/products_page.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
       routes: {
         MyRoutes.homeRoute:(context)=>Homepage(),
         MyRoutes.loginRoute:(context)=>Authenticate(),
-        MyRoutes.productRoute:(context)=>ProductDisplay(),
+        '/product':(context)=>HomePage(),
 
 
       },

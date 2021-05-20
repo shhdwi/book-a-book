@@ -1,5 +1,6 @@
 import 'package:catalog_app/helper_functions/Authentication.dart';
 import 'package:catalog_app/screens/add_product.dart';
+import 'package:catalog_app/screens/display_page.dart';
 import 'package:catalog_app/screens/home_page.dart';
 import 'package:catalog_app/screens/products_page.dart';
 import 'package:catalog_app/screens/sell.dart';
@@ -32,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> pages = [
     Homepage(),
-    AddImage(),
+    HomePage(),
     Seller(),
     ProductDisplay(),
   ];
