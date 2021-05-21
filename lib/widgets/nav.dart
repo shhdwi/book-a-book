@@ -4,6 +4,7 @@ import 'package:catalog_app/screens/add_product.dart';
 import 'package:catalog_app/screens/display_page.dart';
 import 'package:catalog_app/screens/home_page.dart';
 import 'package:catalog_app/screens/products_page.dart';
+import 'package:catalog_app/screens/profile.dart';
 import 'package:catalog_app/screens/sell.dart';
 import 'package:catalog_app/widgets/drawer.dart';
 import 'package:catalog_app/widgets/themes.dart';
@@ -34,10 +35,10 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   final List<Widget> pages = [
-    Homepage(),
+    HomePage(),
     AdPage(),
     Seller(),
-    HomePage()
+    ProfilePage(),
   ];
   PageController controller = PageController();
 
