@@ -1,10 +1,12 @@
 import 'package:catalog_app/helper_functions/Authentication.dart';
+import 'package:catalog_app/screens/MyAds.dart';
 import 'package:catalog_app/screens/add_product.dart';
 import 'package:catalog_app/screens/display_page.dart';
 import 'package:catalog_app/screens/home_page.dart';
 import 'package:catalog_app/screens/products_page.dart';
 import 'package:catalog_app/screens/sell.dart';
 import 'package:catalog_app/widgets/drawer.dart';
+import 'package:catalog_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
@@ -33,9 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> pages = [
     Homepage(),
-    HomePage(),
+    AdPage(),
     Seller(),
-    ProductDisplay(),
+    HomePage()
   ];
   PageController controller = PageController();
 
@@ -44,6 +46,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: ColorMe.cadetgrey,
+
+          ),
+        ),
         drawer: MyDrawer(),
         extendBody: true,
 

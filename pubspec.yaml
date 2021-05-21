@@ -41,6 +41,7 @@ dependencies:
   firebase_storage: ^8.1.0
   fluttertoast: ^8.0.7
   velocity_x: ^3.0.0
+  lottie: ^1.0.1
 
 
 dev_dependencies:
@@ -65,6 +66,7 @@ flutter:
    - assets/images/SignUp.png
    - assets/images/read_img.png
    - assets/images/upload.png
+   - assets/lottie/splash.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

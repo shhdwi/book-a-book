@@ -1,9 +1,11 @@
 import 'dart:ffi';
 
+import 'package:catalog_app/services/auth.dart';
 import 'package:catalog_app/services/product_data.dart';
 import 'package:catalog_app/services/product_notifier.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+
 
 class DatabaseMethods{
   Future addUserInfoToDB(
@@ -36,6 +38,37 @@ Future getProducts(ProductNotifier productNotifier) async{
   });
   productNotifier.productList =productList;
 }
+
+Future getAds(ProductNotifier productNotifier) async{
+  QuerySnapshot snapshot = await FirebaseFirestore.instance.collection("items").get();
+  await AuthMethods().getUserCred().then((snap) {
+    List<ProductData> adList = [];
+    snapshot.docs.forEach((element) {
+      ProductData Addata = ProductData.fromMap(
+          element.data() as Map<String, dynamic>);
+      if (Addata.email == snap["email"]) {
+        adList.add(Addata);
+      }
+    });
+    productNotifier.productList =adList;
+  });
+      }
+
+Future getProduct(ProductNotifier productNotifier) async{
+  QuerySnapshot snapshot = await FirebaseFirestore.instance.collection("items").get();
+  await AuthMethods().getUserCred().then((snap) {
+    List<ProductData> adList = [];
+    snapshot.docs.forEach((element) {
+      ProductData Addata = ProductData.fromMap(
+          element.data() as Map<String, dynamic>);
+      if (Addata.email != snap["email"]) {
+        adList.add(Addata);
+      }
+    });
+    productNotifier.productList =adList;
+  });
+}
+
 
 
 

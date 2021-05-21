@@ -12,12 +12,12 @@ import 'package:velocity_x/velocity_x.dart';
 
 import 'home_page.dart';
 
-class HomePage extends StatefulWidget {
+class AdPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _AdPageState createState() => _AdPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AdPageState extends State<AdPage> {
   final int days = 30;
 
 
@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     ProductNotifier productNotifier=Provider.of<ProductNotifier>(context, listen: false);
-    getProduct(productNotifier);
+    getAds(productNotifier);
     super.initState();
   }
 
@@ -62,8 +62,8 @@ class CatalogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "Books".text.xl5.bold.color(Colors.deepOrangeAccent).make(),
-        "Trending products".text.xl2.make(),
+        "My Ads".text.xl5.bold.color(Colors.deepOrangeAccent).make(),
+        "On Sale".text.xl2.make(),
       ],
     );
   }
@@ -97,14 +97,14 @@ class CatalogItem extends StatelessWidget {
     ProductNotifier productNotifier=Provider.of<ProductNotifier>(context);
     return Container(
       decoration: BoxDecoration(
-    //     boxShadow: [
-    //   BoxShadow(
-    //   color: Colors.grey.withOpacity(0.3),
-    //   spreadRadius: 3,
-    //   blurRadius: 7,
-    //   offset: Offset(0, 0), // changes position of shadow
-    // ),
-    // ],
+        //     boxShadow: [
+        //   BoxShadow(
+        //   color: Colors.grey.withOpacity(0.3),
+        //   spreadRadius: 3,
+        //   blurRadius: 7,
+        //   offset: Offset(0, 0), // changes position of shadow
+        // ),
+        // ],
       ),
 
       child: GestureDetector(
@@ -119,13 +119,13 @@ class CatalogItem extends StatelessWidget {
         child: VxBox(
 
 
-            child: Row(
-              children: [
-                CatalogImage(
-                   catalog.imgUrl,
-                ),
-                Expanded(
-                    child: Column(
+          child: Row(
+            children: [
+              CatalogImage(
+                catalog.imgUrl,
+              ),
+              Expanded(
+                  child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -139,11 +139,11 @@ class CatalogItem extends StatelessWidget {
                             "By ${catalog.name}".text.make(),
                             "₹ ${catalog.price}".text.bold.xl.make().pOnly(right: 8.0),
 
-                      ],
+                          ],
                         )] ))
-              ],
-            ),
-          ).orange50.rounded.square(150).make().py16(),
+            ],
+          ),
+        ).orange50.rounded.square(150).make().py16(),
       ),
     ) ;
 
@@ -167,5 +167,5 @@ class CatalogImage extends StatelessWidget {
 Future getEmail() async{
   await AuthMethods().getUserCred().then((snapshot){
     return snapshot["email"];}
-    );
-      }
+  );
+}

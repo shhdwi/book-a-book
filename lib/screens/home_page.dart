@@ -6,14 +6,9 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      backgroundColor: Colors.white,
 
-      appBar: AppBar(
-        title: Text("Book a Book",
-        style: TextStyle(
-          fontFamily: "Poppins",
-          fontSize: 25,
-        ),),
-      ),
+
       body: Center(
         child: Text(
             "Home Page",
@@ -24,7 +19,6 @@ class Homepage extends StatelessWidget {
           ),
         ),
       ),
-      drawer: MyDrawer(),
       
     );
     throw UnimplementedError();

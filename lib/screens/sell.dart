@@ -56,15 +56,6 @@ class _SellerState extends State<Seller> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorMe.darklemon,
-        title: Text("Sell your Product",
-          style: TextStyle(
-            color: Colors.black54,
-            fontFamily: "Poppins",
-            fontSize: 25,
-          ),),
-      ),
       body: Material(
         color: Colors.white,
         child: SingleChildScrollView(
