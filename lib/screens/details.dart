@@ -63,40 +63,43 @@ class ProductDetails extends StatelessWidget {
 
 
 
-           Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(''),// Book name
-                Text(''), // Author
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                Container(
-            color: Colors.amber,
+           Center(
+             child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                  Container(
+              color: Color(0xFFFFEDD5),
+                padding: EdgeInsets.all(30.0),
+                child: Text('Rs ${productNotifier.currentData.price}'),
+              ),
+              Container(
+              color: Color(0xFFFFEDD5),
               padding: EdgeInsets.all(30.0),
-              child: Text('Number of Pages'),
-            ),
-            Container(
-            color: Colors.amber,
-            padding: EdgeInsets.all(30.0),
-            child: Text('Subject'),
+              child: Text(productNotifier.currentData.name),
           ),
 
   ]
-                ),
-                Text('Description'),
-                RaisedButton(
-                  padding: EdgeInsets.symmetric(vertical:15,horizontal:45),
-                  onPressed: () {},
-                  color: Colors.deepPurpleAccent,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))) ,
-                  child: Text('Contact Details')
-                ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('Description: ${productNotifier.currentData.desc}'),
+                  ),
+                  RaisedButton(
+                    padding: EdgeInsets.symmetric(vertical:15,horizontal:45),
+                    onPressed: () {},
+                    color: Color(0xFFFFEDD5),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))) ,
+                    child: Text('Contact Seller')
+                  ),
           ],
 
     ),
+           ),
         ],
 
     )
