@@ -73,28 +73,46 @@ class ProductDetails extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                   Container(
-              color: Color(0xFFFFEDD5),
-                padding: EdgeInsets.all(30.0),
-                child: Text('Rs ${productNotifier.currentData.price}'),
+                    padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
+                child: Text('Rs ${productNotifier.currentData.price}',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold
+                )),
+                    margin: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(const Radius.circular(20)),
+                        color: Color(0xFFFFEDD5)
+                    ),
               ),
               Container(
-              color: Color(0xFFFFEDD5),
-              padding: EdgeInsets.all(30.0),
-              child: Text(productNotifier.currentData.name),
+                padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
+              child: Text('Seller: ${productNotifier.currentData.name}',
+              style: TextStyle(
+                fontWeight: FontWeight.bold
+              ),),
+                margin: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(const Radius.circular(20)),
+                  color: Color(0xFFFFEDD5),
+                ),
           ),
 
   ]
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('Description: ${productNotifier.currentData.desc}'),
+                    padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                    child: Text('Description: ${productNotifier.currentData.desc}',
+                    style: TextStyle(
+                      fontSize:18.0
+                    ),),
                   ),
                   RaisedButton(
                     padding: EdgeInsets.symmetric(vertical:15,horizontal:45),
                     onPressed: () {},
                     color: Color(0xFFFFEDD5),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))) ,
-                    child: Text('Contact Seller')
+                    child: Text('Contact Seller'),
+
                   ),
           ],
 
