@@ -21,6 +21,7 @@ class MyDrawer extends StatelessWidget{
     // String email = SharedPreferenceHelper().getEmailValues();
     // String? imageUrl= user!.photoURL;
     print(displayName);
+
     // print(email);
     // print(imageUrl);
 
@@ -39,7 +40,7 @@ class MyDrawer extends StatelessWidget{
 
 
                 child: FutureBuilder(
-                  future: AuthMethods().getUserCred(),
+                  future: SharedPreferenceHelper().getUserinfo(),
                   builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                     if (snapshot.hasData){
                       Map userinfo=snapshot.data;

@@ -7,6 +7,22 @@ class SharedPreferenceHelper {
   static String userEmailKey = "USEREMAILKEY";
   static String userProfilePicKey = "USERPROFILEPICKEY";
 
+  getUserinfo() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String nameValue = prefs.getString(displayNameKey)!;
+    String emailValue = prefs.getString(userEmailKey)!;
+    String profPicValue = prefs.getString(userProfilePicKey)!;
+    String stringValue = prefs.getString(userIdKey)!;
+
+    Map<String, dynamic> userInfoMap = {
+      "email": emailValue,
+      "username": stringValue,
+      "name": nameValue,
+      "imgUrl": profPicValue,
+    };
+    return userInfoMap;
+  }
+
   getDisplayNameValues() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     //Return String
