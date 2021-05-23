@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProductData{
+
   String title ="";
   String desc ="";
   String price ="";
@@ -10,6 +11,8 @@ class ProductData{
 
 
    ProductData.fromMap(Map<String,dynamic> data){
+
+
     title=data["title"];
     desc= data["desc"];
     price=data["price"];

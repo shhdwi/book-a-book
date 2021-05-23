@@ -12,7 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:path/path.dart' as Path;
 import 'package:image_picker/image_picker.dart';
+import 'package:uuid/uuid.dart';
 
+import '../services/Database.dart';
 import 'display_page.dart';
 import 'home_page.dart';
 
@@ -221,6 +223,9 @@ class _SellerState extends State<Seller> {
     await ref!.putFile(img).whenComplete(() async{
     await ref!.getDownloadURL().then((value)async{
     await SharedPreferenceHelper().getUserinfo().then((snapshot){
+       // var uuid = Uuid();
+       // var v4 = uuid.v4();
+       // print(v4);
 
       Map<String, dynamic> itemInfo = {
         "name":snapshot["name"],
@@ -229,7 +234,7 @@ class _SellerState extends State<Seller> {
         "imageurl": value,
         "price": priceTextEditingController.text,
         "title": titleTextEditingController.text};
-        UploadItem(itemInfo);
+        DatabaseMethods().UploadItem(descTextEditingController.text,itemInfo);
       });
     });
   });

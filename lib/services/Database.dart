@@ -71,7 +71,7 @@ Future getProduct(ProductNotifier productNotifier) async{
 }
 deleteProduct(ProductData productData,Function productDeleted) async{
 
-   await FirebaseStorage.instance.refFromURL(productData.desc);
+   await FirebaseStorage.instance.refFromURL(productData.imgUrl);
 
    await FirebaseFirestore.instance.collection("items").doc(productData.desc).delete();
    productDeleted(productData);
