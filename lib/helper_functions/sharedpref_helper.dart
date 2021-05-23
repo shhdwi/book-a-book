@@ -12,7 +12,7 @@ class SharedPreferenceHelper {
     String nameValue = prefs.getString(displayNameKey)!;
     String emailValue = prefs.getString(userEmailKey)!;
     String profPicValue = prefs.getString(userProfilePicKey)!;
-    String stringValue = prefs.getString(userIdKey)!;
+    String stringValue = prefs.getString(userNameKey)!;
 
     Map<String, dynamic> userInfoMap = {
       "email": emailValue,

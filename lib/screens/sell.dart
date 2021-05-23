@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
 import 'package:catalog_app/screens/add_product.dart';
 import 'package:catalog_app/services/Database.dart';
 import 'package:catalog_app/services/auth.dart';
@@ -45,7 +46,8 @@ class _SellerState extends State<Seller> {
   }
 
   UploadIt() async{
-    if (formKey1.currentState!.validate()){
+
+    if (formKey1.currentState!.validate()&& _image[0]!=null){
       UploadImage();
       Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage()));
 
@@ -192,7 +194,7 @@ class _SellerState extends State<Seller> {
   }
   chooseImage() async {
 
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    final pickedFile = await picker.getImage(source: ImageSource.gallery,imageQuality: 50);
     setState(() {
       if (_image.length>0){_image.removeLast();}
       _image.add(File(pickedFile!.path));
@@ -218,7 +220,7 @@ class _SellerState extends State<Seller> {
     ref = FirebaseStorage.instance.ref().child('images/${Path.basename(img.path)}');
     await ref!.putFile(img).whenComplete(() async{
     await ref!.getDownloadURL().then((value)async{
-    await AuthMethods().getUserCred().then((snapshot){
+    await SharedPreferenceHelper().getUserinfo().then((snapshot){
 
       Map<String, dynamic> itemInfo = {
         "name":snapshot["name"],

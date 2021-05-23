@@ -17,6 +17,7 @@ class ProductDetails extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
               vertical: 5.0, horizontal: 5.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ClipRRect(
                   borderRadius: BorderRadius.circular(15),
@@ -65,7 +66,7 @@ class ProductDetails extends StatelessWidget {
 
            Center(
              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Row(
@@ -74,7 +75,7 @@ class ProductDetails extends StatelessWidget {
                     children: <Widget>[
                   Container(
                     padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
-                child: Text('Rs ${productNotifier.currentData.price}',
+                child: Text('Price: ₹ ${productNotifier.currentData.price}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold
                 )),
@@ -99,20 +100,24 @@ class ProductDetails extends StatelessWidget {
 
   ]
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                    child: Text('Description: ${productNotifier.currentData.desc}',
-                    style: TextStyle(
-                      fontSize:18.0
-                    ),),
-                  ),
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical:15,horizontal:45),
-                    onPressed: () {},
-                    color: Color(0xFFFFEDD5),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))) ,
-                    child: Text('Contact Seller'),
+                   Center(
+                     child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                        child: Text('Description: ${productNotifier.currentData.desc}',
+                        style: TextStyle(
+                          fontSize:18.0
+                        ),),
+                      ),
+                   ),
+                  Center(
+                    child: RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical:15,horizontal:45),
+                      onPressed: () {},
+                      color: Colors.orange,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))) ,
+                      child: Text('Contact Seller'),
 
+                    ),
                   ),
           ],
 

@@ -1,11 +1,12 @@
-import 'dart:ffi';
 
+import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
 import 'package:catalog_app/services/auth.dart';
 import 'package:catalog_app/services/product_data.dart';
 import 'package:catalog_app/services/product_notifier.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:provider/provider.dart';
 
 class DatabaseMethods{
   Future addUserInfoToDB(
@@ -41,7 +42,7 @@ Future getProducts(ProductNotifier productNotifier) async{
 
 Future getAds(ProductNotifier productNotifier) async{
   QuerySnapshot snapshot = await FirebaseFirestore.instance.collection("items").get();
-  await AuthMethods().getUserCred().then((snap) {
+  await SharedPreferenceHelper().getUserinfo().then((snap) {
     List<ProductData> adList = [];
     snapshot.docs.forEach((element) {
       ProductData Addata = ProductData.fromMap(
@@ -56,7 +57,7 @@ Future getAds(ProductNotifier productNotifier) async{
 
 Future getProduct(ProductNotifier productNotifier) async{
   QuerySnapshot snapshot = await FirebaseFirestore.instance.collection("items").get();
-  await AuthMethods().getUserCred().then((snap) {
+  await SharedPreferenceHelper().getUserinfo().then((snap) {
     List<ProductData> adList = [];
     snapshot.docs.forEach((element) {
       ProductData Addata = ProductData.fromMap(
@@ -67,6 +68,13 @@ Future getProduct(ProductNotifier productNotifier) async{
     });
     productNotifier.productList =adList;
   });
+}
+deleteProduct(ProductData productData,Function productDeleted) async{
+
+   await FirebaseStorage.instance.refFromURL(productData.imgUrl);
+
+   await FirebaseFirestore.instance.collection("items").doc(productData.imgUrl).delete();
+   productDeleted(productData);
 }
 
 

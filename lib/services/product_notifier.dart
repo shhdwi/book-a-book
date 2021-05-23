@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'package:catalog_app/services/product_data.dart';
 import 'package:flutter/cupertino.dart';
 
-class ProductNotifier with ChangeNotifier{
+class   ProductNotifier with ChangeNotifier{
   List<ProductData> _productList =[];
   late ProductData _currentData;
 
@@ -19,6 +19,10 @@ class ProductNotifier with ChangeNotifier{
     _currentData=current;
     notifyListeners();
 
+  }
+  deletePro(ProductData productData){
+    _productList.removeWhere((element) => element.imgUrl== productData.imgUrl);
+    notifyListeners();
   }
 
 }

@@ -8,8 +8,8 @@ class ProductData{
   String email ="";
   String name ="";
 
-   ProductData.fromMap(Map<String,dynamic> data){
 
+   ProductData.fromMap(Map<String,dynamic> data){
     title=data["title"];
     desc= data["desc"];
     price=data["price"];

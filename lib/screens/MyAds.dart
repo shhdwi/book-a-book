@@ -1,3 +1,4 @@
+import 'package:catalog_app/screens/MyAdDetails.dart';
 import 'package:catalog_app/screens/details.dart';
 import 'package:catalog_app/services/Database.dart';
 import 'package:catalog_app/services/auth.dart';
@@ -111,7 +112,7 @@ class CatalogItem extends StatelessWidget {
         onTap: (){
 
           productNotifier.currentData =productNotifier.productList[index];
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>ProductDetails()
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>YourAdDetails()
 
           ));
 
