@@ -14,9 +14,9 @@ class Home1 extends StatefulWidget {
 
 class _Home1State extends State<Home1> {
   bool isSearching = false;
-  late String myName, myProfilePic, myUserName, myEmail;
-  late Stream usersStream;
-  late Stream chatRoomStream;
+   String? myName, myProfilePic, myUserName, myEmail;
+  Stream? usersStream;
+  Stream? chatRoomStream;
 
 
   TextEditingController searchUsernameEditingController =
@@ -58,7 +58,7 @@ class _Home1State extends State<Home1> {
             shrinkWrap: true,
             itemBuilder: (context, index) {
               DocumentSnapshot ds = snapshot.data.docs[index];
-              return ChatRoomListTile(ds["lastMessage"], ds.id, myUserName);
+              return ChatRoomListTile(ds["lastMessage"], ds.id, myUserName!);
             })
             : Center(child: CircularProgressIndicator());
       },
@@ -68,7 +68,7 @@ class _Home1State extends State<Home1> {
   Widget searchListUserTile({String? profileUrl, name, username, email}) {
     return GestureDetector(
       onTap: () {
-        var chatRoomId = getChatRoomIdByUsernames(myUserName, username);
+        var chatRoomId = getChatRoomIdByUsernames(myUserName!, username);
         Map<String, dynamic> chatRoomInfoMap = {
           "users": [myUserName, username]
         };
@@ -163,51 +163,51 @@ class _Home1State extends State<Home1> {
         margin: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            Row(
-              children: [
-                isSearching
-                    ? GestureDetector(
-                  onTap: () {
-                    isSearching = false;
-                    searchUsernameEditingController.text = "";
-                    setState(() {});
-                  },
-                  child: Padding(
-                      padding: EdgeInsets.only(right: 12),
-                      child: Icon(Icons.arrow_back)),
-                )
-                    : Container(),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 16),
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.grey,
-                            width: 1,
-                            style: BorderStyle.solid),
-                        borderRadius: BorderRadius.circular(24)),
-                    child: Row(
-                      children: [
-                        Expanded(
-                            child: TextField(
-                              controller: searchUsernameEditingController,
-                              decoration: InputDecoration(
-                                  border: InputBorder.none, hintText: "username"),
-                            )),
-                        GestureDetector(
-                            onTap: () {
-                              if (searchUsernameEditingController.text != "") {
-                                onSearchBtnClick();
-                              }
-                            },
-                            child: Icon(Icons.search))
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     isSearching
+            //         ? GestureDetector(
+            //       onTap: () {
+            //         isSearching = false;
+            //         searchUsernameEditingController.text = "";
+            //         setState(() {});
+            //       },
+            //       child: Padding(
+            //           padding: EdgeInsets.only(right: 12),
+            //           child: Icon(Icons.arrow_back)),
+            //     )
+            //         : Container(),
+            //     Expanded(
+            //       child: Container(
+            //         margin: EdgeInsets.symmetric(vertical: 16),
+            //         padding: EdgeInsets.symmetric(horizontal: 16),
+            //         decoration: BoxDecoration(
+            //             border: Border.all(
+            //                 color: Colors.grey,
+            //                 width: 1,
+            //                 style: BorderStyle.solid),
+            //             borderRadius: BorderRadius.circular(24)),
+            //         child: Row(
+            //           children: [
+            //             Expanded(
+            //                 child: TextField(
+            //                   controller: searchUsernameEditingController,
+            //                   decoration: InputDecoration(
+            //                       border: InputBorder.none, hintText: "username"),
+            //                 )),
+            //             GestureDetector(
+            //                 onTap: () {
+            //                   if (searchUsernameEditingController.text != "") {
+            //                     onSearchBtnClick();
+            //                   }
+            //                 },
+            //                 child: Icon(Icons.search))
+            //           ],
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
             isSearching ? searchUsersList() : chatRoomsList()
           ],
         ),

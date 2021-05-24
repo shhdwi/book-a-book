@@ -1,7 +1,9 @@
 import 'package:catalog_app/helper_functions/Authentication.dart';
 import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
 import 'package:catalog_app/screens/login_page.dart';
+import 'package:catalog_app/screens/profile.dart';
 import 'package:catalog_app/services/auth.dart';
+import 'package:catalog_app/widgets/nav.dart';
 import 'package:catalog_app/widgets/themes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -30,7 +32,7 @@ class MyDrawer extends StatelessWidget{
 
     return Drawer(
       child: Container(
-        color: ColorMe.Lemon,
+        color: Colors.orange[50],
         child: ListView(
           children: [
             DrawerHeader(
@@ -47,7 +49,7 @@ class MyDrawer extends StatelessWidget{
                       return UserAccountsDrawerHeader(
                         margin: EdgeInsets.zero,
                         decoration: BoxDecoration(
-                          color: ColorMe.darklemon,),
+                          color: Colors.orange[200],),
                         accountEmail: Text(userinfo["email"]),
                         accountName: Text(userinfo["name"]),
                         currentAccountPicture: CircleAvatar(
@@ -67,15 +69,31 @@ class MyDrawer extends StatelessWidget{
                   },
                 )
             ),
-            ListTile(
-              leading: Icon(
-                CupertinoIcons.home,
-                color: Colors.black45,
+            GestureDetector(
+              onTap:(){ Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyHomePage()));},
+              child: ListTile(
+                leading: Icon(
+                  CupertinoIcons.home,
+                  color: Colors.black45,
+                ),
+                title: Text("Home"),
+
+
+
               ),
-              title: Text("Home"),
+            ),
+            GestureDetector(
+              onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));},
+              child: ListTile(
+                leading: Icon(
+                  CupertinoIcons.profile_circled,
+                  color: Colors.black45,
+                ),
+                title: Text("Profile"),
 
 
 
+              ),
             ),
             GestureDetector(
               onTap: (){

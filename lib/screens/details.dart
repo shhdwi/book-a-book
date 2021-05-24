@@ -127,6 +127,7 @@ class ProductDetails extends StatelessWidget {
                         String myUserName = userInfoMap["username"];
                         String username=(productNotifier.currentData.email.split("@"))[0];
                         var chatRoomId = getChatRoomIdByUsernames(myUserName, username);
+                        print(chatRoomId);
                         Map<String, dynamic> chatRoomInfoMap = {
                           "users": [myUserName, username]
                         };

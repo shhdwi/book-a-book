@@ -1,4 +1,5 @@
 import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
+import 'package:catalog_app/widgets/themes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -88,17 +89,17 @@ class _ChatScreenState extends State<ChatScreen> {
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(24),
                   bottomRight:
-                  sendByMe ? Radius.circular(0) : Radius.circular(24),
+                  sendByMe ? Radius.circular(5) : Radius.circular(24),
                   topRight: Radius.circular(24),
                   bottomLeft:
-                  sendByMe ? Radius.circular(24) : Radius.circular(0),
+                  sendByMe ? Radius.circular(24) : Radius.circular(5),
                 ),
-                color: sendByMe ? Colors.blue : Color(0xfff1f0f0),
+                color: sendByMe ? Colors.orange[200] : Colors.grey[300],
               ),
               padding: EdgeInsets.all(16),
               child: Text(
                 message,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black),
               )),
         ),
       ],
@@ -144,7 +145,12 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.name),
+        iconTheme: IconThemeData(
+        color: ColorMe.cadetgrey),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Padding(padding: EdgeInsets.symmetric(horizontal: 65),
+        child: Text(widget.name,style: TextStyle(color: Colors.black),)),
       ),
       body: Container(
         child: Stack(
@@ -153,7 +159,7 @@ class _ChatScreenState extends State<ChatScreen> {
             Container(
               alignment: Alignment.bottomCenter,
               child: Container(
-                color: Colors.black.withOpacity(0.8),
+                color: Colors.orange.withOpacity(0.6),
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Row(
                   children: [
@@ -166,7 +172,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                               border: InputBorder.none,
-                              hintText: "type a message",
+                              hintText: "Type your message",
                               hintStyle:
                               TextStyle(color: Colors.white.withOpacity(0.6))),
                         )),
@@ -176,7 +182,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       },
                       child: Icon(
                         Icons.send,
-                        color: Colors.white,
+                        color: Colors.black45,
                       ),
                     )
                   ],
