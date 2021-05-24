@@ -80,6 +80,7 @@ class ProfilePage extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.all(10.0),
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text('Name',style: TextStyle(color: Colors.deepOrangeAccent),),
                               Text(userinfo['name']),
@@ -115,6 +116,8 @@ class ProfilePage extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.all(10.0),
                           child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+
                             children: [
                               Text('username'),
                               Text(userinfo['username']),
@@ -146,7 +149,8 @@ class ProfilePage extends StatelessWidget {
                         ),
                         Padding(
                           padding: EdgeInsets.all(10.0),
-                          child: Column(
+                          child: Column( 
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text('Email'),
                               Text(userinfo['email']),

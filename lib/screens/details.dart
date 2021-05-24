@@ -1,12 +1,22 @@
 import 'dart:ui';
 
+import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
+import 'package:catalog_app/screens/chatscreen.dart';
 import 'package:catalog_app/services/product_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icon.dart';
 import 'package:provider/provider.dart';
 
+import '../services/Database.dart';
+
 class ProductDetails extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+    late String myName, myProfilePic, myUserName, myEmail;
+    late Stream usersStream, chatRoomsStream;
+
+
     ProductNotifier productNotifier = Provider.of<ProductNotifier>(
         context, listen: false);
     return Scaffold(
@@ -112,7 +122,20 @@ class ProductDetails extends StatelessWidget {
                   Center(
                     child: RaisedButton(
                       padding: EdgeInsets.symmetric(vertical:15,horizontal:45),
-                      onPressed: () {},
+                      onPressed: () async{
+                        Map<String, dynamic> userInfoMap =await SharedPreferenceHelper().getUserinfo();
+                        String myUserName = userInfoMap["username"];
+                        String username=(productNotifier.currentData.email.split("@"))[0];
+                        var chatRoomId = getChatRoomIdByUsernames(myUserName, username);
+                        Map<String, dynamic> chatRoomInfoMap = {
+                          "users": [myUserName, username]
+                        };
+                        DatabaseMethods().createChatRoom(chatRoomId, chatRoomInfoMap);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ChatScreen(username, productNotifier.currentData.name)));
+                      },
                       color: Colors.orange,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))) ,
                       child: Text('Contact Seller'),
@@ -132,5 +155,12 @@ class ProductDetails extends StatelessWidget {
 
     );
 
+  }
+}
+getChatRoomIdByUsernames(String a, String b) {
+  if (a.substring(0, 1).codeUnitAt(0) > b.substring(0, 1).codeUnitAt(0)) {
+    return "$b\_$a";
+  } else {
+    return "$a\_$b";
   }
 }

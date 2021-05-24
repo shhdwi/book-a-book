@@ -78,6 +78,8 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                 ),
+                Image.asset(
+                  "assets/images/Learning.gif", fit: BoxFit.scaleDown,),
 
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -85,88 +87,88 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SizedBox(height: 50.0),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Enter Email",
-                          labelText: "Email",
-                        ),
-                        validator: (value){
-                          if (value!.isEmpty){
-                            return "Email cannot be empty";
-                          }
-                          return RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value) ? null : "Please provide a valid Email Id";
-
-
-                        },
-
-                        onChanged: (value) {
-                          setState(() {
-
-                          });
-                        },
-                      ),
-                      TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-
-                          hintText: "Enter Password",
-                          labelText: "Password",
-
-                        ),
-                        validator: (value) {
-                          if (value == null) {
-                            return "Password cannot be empty";
-                          }
-                          else if (value.length < 6) {
-                            return "Password length cannot be less than 6 characters";
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(height: 5),
-                      Container(
-                        alignment: Alignment.centerRight,
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 16,
-                              vertical: 8),
-                          child: Text("Forgot Password?"),
-                        ),
-                      ),
-                      SizedBox(height: 25.0),
+                      // SizedBox(height: 50.0),
+                      // TextFormField(
+                      //   decoration: InputDecoration(
+                      //     hintText: "Enter Email",
+                      //     labelText: "Email",
+                      //   ),
+                      //   validator: (value){
+                      //     if (value!.isEmpty){
+                      //       return "Email cannot be empty";
+                      //     }
+                      //     return RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value) ? null : "Please provide a valid Email Id";
+                      //
+                      //
+                      //   },
+                      //
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //
+                      //     });
+                      //   },
+                      // ),
+                      // TextFormField(
+                      //   obscureText: true,
+                      //   decoration: InputDecoration(
+                      //
+                      //     hintText: "Enter Password",
+                      //     labelText: "Password",
+                      //
+                      //   ),
+                      //   validator: (value) {
+                      //     if (value == null) {
+                      //       return "Password cannot be empty";
+                      //     }
+                      //     else if (value.length < 6) {
+                      //       return "Password length cannot be less than 6 characters";
+                      //     }
+                      //     return null;
+                      //   },
+                      // ),
+                      // SizedBox(height: 5),
+                      // Container(
+                      //   alignment: Alignment.centerRight,
+                      //   child: Container(
+                      //     padding: EdgeInsets.symmetric(horizontal: 16,
+                      //         vertical: 8),
+                      //     child: Text("Forgot Password?"),
+                      //   ),
+                      // ),
+                      // SizedBox(height: 25.0),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          InkWell(
-
-                            onTap: () => signIn(),
-                            child: AnimatedContainer(
-                              duration: Duration(milliseconds: 200),
-                              width: changeBtn ? 50 : 150,
-                              height: 40,
-
-                              alignment: Alignment.center,
-                              child: changeBtn
-                                  ? Icon(Icons.done, color: Colors.white)
-                                  : Text(
-                                "Sign In",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                  fontFamily: "Poppins",
-                                  // fontWeight: FontWeight.bold,
-                                ),
-
-                              ),
-                              decoration: BoxDecoration(
-                                  color: Colors.deepOrangeAccent,
-                                  borderRadius: BorderRadius.circular(
-                                      changeBtn ? 50 : 15)
-                              ),
-
-                            ),
-                          ),
-                          SizedBox(width: 0),
+                          // InkWell(
+                          //
+                          //   onTap: () => signIn(),
+                          //   child: AnimatedContainer(
+                          //     duration: Duration(milliseconds: 200),
+                          //     width: changeBtn ? 50 : 150,
+                          //     height: 40,
+                          //
+                          //     alignment: Alignment.center,
+                          //     child: changeBtn
+                          //         ? Icon(Icons.done, color: Colors.white)
+                          //         : Text(
+                          //       "Sign In",
+                          //       style: TextStyle(
+                          //         color: Colors.white,
+                          //         fontSize: 12,
+                          //         fontFamily: "Poppins",
+                          //         // fontWeight: FontWeight.bold,
+                          //       ),
+                          //
+                          //     ),
+                          //     decoration: BoxDecoration(
+                          //         color: Colors.deepOrangeAccent,
+                          //         borderRadius: BorderRadius.circular(
+                          //             changeBtn ? 50 : 15)
+                          //     ),
+                          //
+                          //   ),
+                          // ),
+                          // SizedBox(width: 0),
                           // ElevatedButton(
                           //     child:
                           //     Text("Login"),
@@ -237,34 +239,33 @@ class _LoginPageState extends State<LoginPage> {
 
 
                       SizedBox(height: 25.0),
-                      Row(mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("Don't have an account?", style: TextStyle(
-                            fontSize: 15,
-                          ),
-                          ),
-                          SizedBox(width: 5,),
-                          GestureDetector(
-                            onTap: () {
-                              widget.toggle();
-                            },
-                            child: Container(
-                              padding: EdgeInsets.symmetric(vertical: 8),
-                              child: Text("Register Now", style: TextStyle(
-                                fontSize: 15,
-                                decoration: TextDecoration.underline,
-
-                              )
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
+                      // Row(mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: [
+                      //     Text("Don't have an account?", style: TextStyle(
+                      //       fontSize: 15,
+                      //     ),
+                      //     ),
+                      //     SizedBox(width: 5,),
+                      //     GestureDetector(
+                      //       onTap: () {
+                      //         widget.toggle();
+                      //       },
+                      //       child: Container(
+                      //         padding: EdgeInsets.symmetric(vertical: 8),
+                      //         child: Text("Register Now", style: TextStyle(
+                      //           fontSize: 15,
+                      //           decoration: TextDecoration.underline,
+                      //
+                      //         )
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ],
+                      // )
                     ],
                   ),
                 ),
-                Image.asset(
-                  "assets/images/login_image.png", fit: BoxFit.scaleDown,)
+
 
 
               ],

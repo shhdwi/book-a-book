@@ -69,6 +69,8 @@ flutter:
    - assets/images/read_img.png
    - assets/images/upload.png
    - assets/lottie/splash.json
+   - assets/images/reading.gif
+   - assets/images/Learning.gif
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
