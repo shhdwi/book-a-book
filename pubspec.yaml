@@ -68,7 +68,7 @@ flutter:
    - assets/images/SignUp.png
    - assets/images/read_img.png
    - assets/images/upload.png
-   - assets/lottie/splash.json
+   - assets/lottie/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
