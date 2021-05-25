@@ -254,6 +254,7 @@ class _ChatRoomListTileState extends State<ChatRoomListTile> {
                 builder: (context) => ChatScreen(username, name)));
       },
       child: Container(
+        color: Colors.orange[50],
         margin: EdgeInsets.symmetric(vertical: 8),
         child: Row(
           children: [
@@ -274,7 +275,9 @@ class _ChatRoomListTileState extends State<ChatRoomListTile> {
                   style: TextStyle(fontSize: 16),
                 ),
                 SizedBox(height: 3),
-                Text(widget.lastMessage)
+                // Text(widget.lastMessage,
+                //   overflow: TextOverflow.ellipsis,
+                //   )
               ],
             )
           ],

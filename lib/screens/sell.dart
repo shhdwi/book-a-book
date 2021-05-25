@@ -9,6 +9,7 @@ import 'package:catalog_app/widgets/themes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:path/path.dart' as Path;
 import 'package:image_picker/image_picker.dart';
@@ -106,6 +107,9 @@ class _SellerState extends State<Seller> {
 
                   ),
                   TextFormField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly],
                     controller: priceTextEditingController,
                     decoration: InputDecoration(
                       hintText: "Price",
