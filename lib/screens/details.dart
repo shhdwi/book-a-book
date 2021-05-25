@@ -124,9 +124,10 @@ class ProductDetails extends StatelessWidget {
                       padding: EdgeInsets.symmetric(vertical:15,horizontal:45),
                       onPressed: () async{
                         Map<String, dynamic> userInfoMap =await SharedPreferenceHelper().getUserinfo();
-                        String myUserName = userInfoMap["username"];
+                        String myuserName = (userInfoMap["email"]);
+                        String myUserName =myuserName.split("@")[0];
                         String username=(productNotifier.currentData.email.split("@"))[0];
-                        var chatRoomId = getChatRoomIdByUsernames(myUserName, username);
+                        var chatRoomId = getChatRoomIdByUsernames(username, myUserName);
                         print(chatRoomId);
                         Map<String, dynamic> chatRoomInfoMap = {
                           "users": [myUserName, username]

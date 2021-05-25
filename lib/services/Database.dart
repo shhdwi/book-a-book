@@ -91,6 +91,8 @@ class DatabaseMethods{
 
   Future addUserInfoToDB(
       String userId, Map<String, dynamic> userInfoMap) async {
+
+
     return FirebaseFirestore.instance
         .collection("users")
         .doc(userId)
@@ -151,7 +153,7 @@ Future getProduct(ProductNotifier productNotifier) async{
 }
 deleteProduct(ProductData productData,Function productDeleted) async{
 
-   await FirebaseStorage.instance.refFromURL(productData.imgUrl);
+   await FirebaseStorage.instance.refFromURL(productData.imgUrl).delete();
 
    await FirebaseFirestore.instance.collection("items").doc(productData.desc).delete();
    productDeleted(productData);
