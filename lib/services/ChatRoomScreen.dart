@@ -82,13 +82,11 @@ class _Home1State extends State<Home1> {
         margin: EdgeInsets.symmetric(vertical: 8),
         child: Row(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(40),
-              child: Image.network(
-                profileUrl!,
-                height: 40,
-                width: 40,
-              ),
+            CircleAvatar(
+              backgroundColor: Colors.grey,
+              backgroundImage: profileUrl!.isNotEmpty
+                  ? NetworkImage(profileUrl)
+                  : null,
             ),
             SizedBox(width: 12),
             Column(
@@ -143,6 +141,7 @@ class _Home1State extends State<Home1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       // appBar: AppBar(
       //   title: Text("Messenger Clone"),
       //   actions: [
@@ -162,7 +161,9 @@ class _Home1State extends State<Home1> {
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text("Recent Chats",style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 40,fontWeight: FontWeight.w600,fontFamily: "Poppins"),),
             // Row(
             //   children: [
             //     isSearching
@@ -254,17 +255,16 @@ class _ChatRoomListTileState extends State<ChatRoomListTile> {
                 builder: (context) => ChatScreen(username, name)));
       },
       child: Container(
-        color: Colors.orange[50],
+        decoration: BoxDecoration(color: Colors.orange[50],borderRadius: BorderRadius.circular(15)),
+        
         margin: EdgeInsets.symmetric(vertical: 8),
         child: Row(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: Image.network(
-                profilePicUrl,
-                height: 40,
-                width: 40,
-              ),
+            CircleAvatar(
+              backgroundColor: Colors.grey,
+              backgroundImage: profilePicUrl.isNotEmpty
+                  ? NetworkImage(profilePicUrl)
+                  : null,
             ),
             SizedBox(width: 12),
             Column(

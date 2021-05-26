@@ -52,7 +52,7 @@ class _SellerState extends State<Seller> {
 
     if (formKey1.currentState!.validate()&& _image[0]!=null){
       UploadImage();
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyHomePage()));
 
 
     }

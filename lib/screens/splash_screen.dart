@@ -35,6 +35,7 @@ class Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: "Poppins"),
       home: FutureBuilder(
         future: AuthMethods().getCurrentUser(),
         builder: (context , AsyncSnapshot<dynamic> snapshot){
@@ -45,6 +46,6 @@ class Screen extends StatelessWidget {
           }
         },
       ),
-    );
+      debugShowCheckedModeBanner: false,);
   }
 }
