@@ -1,5 +1,6 @@
 import 'package:catalog_app/helper_functions/Authentication.dart';
 import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
+import 'package:catalog_app/screens/Developers.dart';
 import 'package:catalog_app/screens/login_page.dart';
 import 'package:catalog_app/screens/profile.dart';
 import 'package:catalog_app/services/auth.dart';
@@ -90,6 +91,19 @@ class MyDrawer extends StatelessWidget{
                   color: Colors.black45,
                 ),
                 title: Text("Profile"),
+
+
+
+              ),
+            ),
+            GestureDetector(
+              onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=>DevSus()));},
+              child: ListTile(
+                leading: Icon(
+                  CupertinoIcons.heart,
+                  color: Colors.redAccent,
+                ),
+                title: Text("Developers",style: TextStyle(color: Colors.redAccent),),
 
 
 
