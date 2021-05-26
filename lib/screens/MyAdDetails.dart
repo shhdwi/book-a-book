@@ -94,6 +94,8 @@ class YourAdDetails extends StatelessWidget {
                             Container(
                               padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
                               child: Text('Seller: ${productNotifier.currentData.name}',
+                                overflow: TextOverflow.fade,
+                                maxLines: 2,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold
                                 ),),
