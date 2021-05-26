@@ -25,7 +25,7 @@ class _AddImageState extends State<AddImage> {
         appBar: AppBar(
           title: Text('Add Image'),
           actions: [
-            FlatButton(
+            TextButton(
                 onPressed: () {
                   setState(() {
                     uploading = true;

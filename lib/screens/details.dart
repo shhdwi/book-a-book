@@ -4,7 +4,6 @@ import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
 import 'package:catalog_app/screens/chatscreen.dart';
 import 'package:catalog_app/services/product_notifier.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icon.dart';
 import 'package:provider/provider.dart';
 
 import '../services/Database.dart';
@@ -13,10 +12,6 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late String myName, myProfilePic, myUserName, myEmail;
-    late Stream usersStream, chatRoomsStream;
-
-
     ProductNotifier productNotifier = Provider.of<ProductNotifier>(
         context, listen: false);
     return Scaffold(
