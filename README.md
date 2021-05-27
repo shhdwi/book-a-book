@@ -47,7 +47,7 @@ for all of us. Special thanks to Arvind Bhaiya, Rishabh Bhaiya, Ritvij Bhaiya an
 Umang Bhaiya for their mentorship and support during this project!
 
 ## Figma UI Design
-<a href="https://www.figma.com/file/3lt2pMFY6akCnaHafvigwn/Book-a-Book?node-id=0%3A1" target="_top">Figma Design Link</a>
+<a href="https://www.figma.com/file/3lt2pMFY6akCnaHafvigwn/Book-a-Book?node-id=0%3A1" target="_blank">Figma Design Link</a>
 
 ## Screenshot
   <p float="left">
