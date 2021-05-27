@@ -46,6 +46,9 @@ ourselves and with mentors and working on the project was a really cool experien
 for all of us. Special thanks to Arvind Bhaiya, Rishabh Bhaiya, Ritvij Bhaiya and
 Umang Bhaiya for their mentorship and support during this project!
 
+##Figma UI Design
+<a href="https://www.figma.com/file/3lt2pMFY6akCnaHafvigwn/Book-a-Book?node-id=0%3A1" target="_top">Figma Design Link</a>
+
 ## Screenshot
   <p float="left">
 <img src="https://user-images.githubusercontent.com/72087189/119714052-05f58580-be80-11eb-9b86-08d0ed2b72b1.jpeg" alt="drawing" width="300" />
