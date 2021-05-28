@@ -31,8 +31,8 @@ class _Home1State extends State<Home1> {
     setState(() {});
   }
 
-  getChatRoomIdByUsernames(String a, String b) {
-    if (a.substring(0, 1).codeUnitAt(0) > b.substring(0, 1).codeUnitAt(0)) {
+  String getChatRoomIdByUsernames(String a, String b) {
+    if (a.compareTo(b)==1) {
       return "$b\_$a";
     } else {
       return "$a\_$b";
