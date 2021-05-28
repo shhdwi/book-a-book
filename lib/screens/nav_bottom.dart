@@ -7,12 +7,9 @@ import 'package:catalog_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-
-
 var tstyle = TextStyle(color: Colors.white.withOpacity(0.6),
     fontSize: 50
 );
-
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -22,13 +19,21 @@ class _MyHomePageState extends State<MyHomePage> {
   var padding = EdgeInsets.symmetric(horizontal: 18,vertical: 5);
   double gap =10;
 
+  int _index = 0;
+  List<Color> colors = [
+    Colors.white,
+    Colors.white,
+    Colors.white,
+    Colors.white
+  ];
 
-
-  final List<Widget> pages = [
+  List<Widget> text = [
     HomePage(),
-    AdPage(),
-    Seller(),
     Home1(),
+    Seller(),
+    AdPage(),
+
+
   ];
   PageController controller = PageController();
 
@@ -50,19 +55,22 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         drawer: MyDrawer(),
+
         extendBody: true,
-
-        body:PageView(
-            physics: NeverScrollableScrollPhysics(),
+        body:PageView.builder(
+            itemCount: 4,
             controller: controller,
-            children: pages,
-
-            onPageChanged: (int index) {
+            onPageChanged: (page){
               setState(() {
-                controller.jumpToPage(index);
+                _index= page;
               });
+            },
+            itemBuilder:(context,position){
+              return Container(
+                color: colors[position],
+                child:Center(child: text[position]),
+              );
             }),
-
         bottomNavigationBar: SafeArea(
           child: Container(
             margin: EdgeInsets.symmetric(horizontal: 20,vertical: 5),
@@ -97,15 +105,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   GButton(
                     gap: gap,
-                    icon: LineIcons.heart,
+                    icon: LineIcons.facebookMessenger,
                     iconColor: Colors.black,
                     iconActiveColor: Colors.orange,
-                    text: "My Ads",
+                    text: 'Chats',
                     textColor: Colors.orange,
                     backgroundColor: Colors.orange.withOpacity(0.2),
                     iconSize: 24,
                     padding: padding,
                   ),
+
                   GButton(
                     gap: gap,
                     icon: LineIcons.plusCircle,
@@ -119,18 +128,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   GButton(
                     gap: gap,
-                    icon: LineIcons.facebookMessenger,
+                    icon: LineIcons.heart,
                     iconColor: Colors.black,
                     iconActiveColor: Colors.orange,
-                    text: 'Chats',
+                    text: "My Ads",
                     textColor: Colors.orange,
                     backgroundColor: Colors.orange.withOpacity(0.2),
                     iconSize: 24,
                     padding: padding,
                   ),
+
                 ],
-                onTabChange: (index) {
-                   controller.jumpToPage(index);
+                selectedIndex: _index,
+                onTabChange: (index){
+                  setState(() {
+                    _index =index;
+                  });
+                  controller.animateToPage(index,duration: Duration(milliseconds: 1000),curve: Curves.easeInOutExpo);
                 },
               ),
             ),

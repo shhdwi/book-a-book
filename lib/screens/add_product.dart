@@ -96,7 +96,7 @@ class _AddImageState extends State<AddImage> {
       _image.add(File(pickedFile!.path));
 
     });
-    if (pickedFile!.path == null) retrieveLostData();
+
   }
 
   Future<void> retrieveLostData() async {

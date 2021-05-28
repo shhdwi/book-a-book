@@ -1,4 +1,4 @@
-import 'package:catalog_app/widgets/drawer.dart';
+
 import 'package:flutter/material.dart';
 
 class Homepage extends StatelessWidget {
@@ -21,7 +21,7 @@ class Homepage extends StatelessWidget {
       ),
       
     );
-    throw UnimplementedError();
+
   }
 
 }

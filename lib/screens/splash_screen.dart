@@ -1,7 +1,7 @@
 import'dart:async';
 import 'package:catalog_app/helper_functions/Authentication.dart';
+import 'package:catalog_app/screens/nav_bottom.dart';
 import 'package:catalog_app/services/auth.dart';
-import 'package:catalog_app/widgets/nav.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 class Splash extends StatefulWidget {

@@ -1,12 +1,10 @@
 
 import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
-import 'package:catalog_app/services/auth.dart';
 import 'package:catalog_app/services/product_data.dart';
 import 'package:catalog_app/services/product_notifier.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
+
 
 class DatabaseMethods{
 

@@ -1,13 +1,8 @@
-import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
 import 'package:catalog_app/screens/home_page.dart';
-import 'package:catalog_app/services/Database.dart';
 import 'package:catalog_app/services/auth.dart';
-import 'package:catalog_app/services/google_auth.dart';
-import 'package:catalog_app/utils/routes.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 
 
 

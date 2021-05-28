@@ -1,25 +1,24 @@
 import 'package:catalog_app/helper_functions/Authentication.dart';
 import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
 import 'package:catalog_app/screens/Developers.dart';
-import 'package:catalog_app/screens/login_page.dart';
+
 import 'package:catalog_app/screens/profile.dart';
 import 'package:catalog_app/services/auth.dart';
 import 'package:catalog_app/widgets/nav.dart';
-import 'package:catalog_app/widgets/themes.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 
+
+// ignore: must_be_immutable
 class MyDrawer extends StatelessWidget{
 
   AuthMethods authMethods =new AuthMethods();
 
   @override
    Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser;
+
     Future displayName =SharedPreferenceHelper().getDisplayName();
     // String email = SharedPreferenceHelper().getEmailValues();
     // String? imageUrl= user!.photoURL;
@@ -131,7 +130,6 @@ class MyDrawer extends StatelessWidget{
       ),
 
     );
-    throw UnimplementedError();
   }
   
 }

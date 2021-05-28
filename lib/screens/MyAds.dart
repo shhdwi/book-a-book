@@ -1,17 +1,16 @@
 import 'package:catalog_app/screens/MyAdDetails.dart';
-import 'package:catalog_app/screens/details.dart';
+
 import 'package:catalog_app/services/Database.dart';
 import 'package:catalog_app/services/auth.dart';
 import 'package:catalog_app/services/product_data.dart';
 import 'package:catalog_app/services/product_notifier.dart';
-import 'package:catalog_app/widgets/themes.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:provider/provider.dart';
-import 'dart:convert';
+
 import 'package:velocity_x/velocity_x.dart';
 
-import 'home_page.dart';
 
 class AdPage extends StatefulWidget {
   @override
@@ -85,6 +84,7 @@ class CatalogList extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class CatalogItem extends StatelessWidget {
   final ProductData catalog;
   bool Myad = false;

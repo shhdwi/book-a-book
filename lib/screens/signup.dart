@@ -2,7 +2,6 @@ import 'package:catalog_app/screens/home_page.dart';
 import 'package:catalog_app/services/auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignUp extends StatefulWidget {
   final Function toggle;

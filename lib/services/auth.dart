@@ -1,6 +1,6 @@
 import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
 import 'package:catalog_app/model/user.dart';
-import 'package:catalog_app/screens/home_page.dart';
+
 import 'package:catalog_app/services/Database.dart';
 import 'package:catalog_app/widgets/nav.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,7 +14,7 @@ class AuthMethods{
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   getCurrentUser()async{
-    return await _auth.currentUser;
+    return  _auth.currentUser;
   }
 
   UserData? _userFromFirebaseUser(User user){

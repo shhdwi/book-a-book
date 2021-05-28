@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:catalog_app/services/Database.dart';
-import 'package:line_icons/line_icon.dart';
+
 
 class Home extends StatefulWidget {
   @override

@@ -3,7 +3,9 @@ import 'dart:ui';
 import 'package:catalog_app/services/Database.dart';
 import 'package:catalog_app/services/product_data.dart';
 import 'package:catalog_app/services/product_notifier.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
 class YourAdDetails extends StatelessWidget {
@@ -118,15 +120,48 @@ class YourAdDetails extends StatelessWidget {
                         ),
                       ),
                       Center(
-                        child: RaisedButton(
-                          padding: EdgeInsets.symmetric(vertical:15,horizontal:45),
-                          onPressed: () {deleteProduct(productNotifier.currentData, _onproductDeleted);},
-                          color: Colors.orange,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))) ,
-                          child: Text('Delete Ad from Sale'),
+                        child: Container(
+
+                          padding: const EdgeInsets.all(0.0),
+
+                          height: 40,
+                          alignment: Alignment.center,
+                          child: OutlinedButton.icon(
+
+                            onPressed: ()
+                              {deleteProduct(productNotifier.currentData, _onproductDeleted);}
+                            ,
+                            icon: Icon(CupertinoIcons.delete,
+                                color: Colors.redAccent),
+                            label: Text(
+                              "Delete Ad from Sale",
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 10,
+
+
+                                fontFamily: "Poppins",
+
+                                // fontWeight: FontWeight.bold,
+                              ),
+
+                            ),
+                            style: OutlinedButton.styleFrom(
+                                elevation: 0,
+                                shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10)))
+                            ),
+
+                          ),
+
+
+
+
+                          ),
+
 
                         ),
-                      ),
                     ],
 
                   ),

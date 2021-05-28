@@ -1,11 +1,8 @@
 import 'dart:io';
 import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
-import 'package:catalog_app/screens/add_product.dart';
 import 'package:catalog_app/services/Database.dart';
-import 'package:catalog_app/services/auth.dart';
-import 'package:catalog_app/utils/routes.dart';
+
 import 'package:catalog_app/widgets/nav.dart';
-import 'package:catalog_app/widgets/themes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -13,11 +10,9 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:path/path.dart' as Path;
 import 'package:image_picker/image_picker.dart';
-import 'package:uuid/uuid.dart';
 
 import '../services/Database.dart';
-import 'display_page.dart';
-import 'home_page.dart';
+
 
 class Seller extends StatefulWidget {
 

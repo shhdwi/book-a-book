@@ -1,6 +1,6 @@
 import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
 import 'package:catalog_app/screens/chatscreen.dart';
-import 'package:catalog_app/services/auth.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -141,6 +141,7 @@ class _Home1State extends State<Home1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
 
       // appBar: AppBar(
       //   title: Text("Messenger Clone"),
@@ -159,8 +160,10 @@ class _Home1State extends State<Home1> {
       //   ],
       // ),
       body: Container(
+
         margin: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
+
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Recent Chats",style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 40,fontWeight: FontWeight.w600,fontFamily: "Poppins"),),
