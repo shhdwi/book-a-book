@@ -47,6 +47,7 @@ class ProductDetails extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(25)),
 
                                 child: Card(
+                                  color: Colors.transparent,
 
 
 
