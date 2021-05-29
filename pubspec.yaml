@@ -43,6 +43,8 @@ dependencies:
   velocity_x: ^3.0.0
   lottie: ^1.0.1
   uuid: ^3.0.4
+  firebase_messaging: ^10.0.0
+  flutter_local_notifications: ^6.0.0
 
 
 

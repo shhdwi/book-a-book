@@ -1,8 +1,10 @@
 import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
-import 'package:catalog_app/model/user.dart';
+import 'package:catalog_app/models/user.dart';
+
+import 'package:catalog_app/screens/nav_bottom.dart';
 
 import 'package:catalog_app/services/Database.dart';
-import 'package:catalog_app/widgets/nav.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +20,7 @@ class AuthMethods{
   }
 
   UserData? _userFromFirebaseUser(User user){
-    return user != null ? UserData(userId: user.uid) : null;
+    return  UserData(userId: user.uid);
   }
 
   Future signInWithEmailAndPassword(String email, String password) async {

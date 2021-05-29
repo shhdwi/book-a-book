@@ -1,8 +1,6 @@
 import 'dart:io';
 import 'package:catalog_app/helper_functions/sharedpref_helper.dart';
 import 'package:catalog_app/services/Database.dart';
-
-import 'package:catalog_app/widgets/nav.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +10,7 @@ import 'package:path/path.dart' as Path;
 import 'package:image_picker/image_picker.dart';
 
 import '../services/Database.dart';
+import 'nav_bottom.dart';
 
 
 class Seller extends StatefulWidget {

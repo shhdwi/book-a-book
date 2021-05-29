@@ -43,8 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Padding(padding: EdgeInsets.symmetric(horizontal: 40),
-              child: Text("Book-a-Book",style: TextStyle(color: Colors.deepOrangeAccent,fontFamily: "Poppins",fontSize: 28,fontWeight: FontWeight.bold),)),
+          centerTitle: true,
+          title: Text("Book-a-Book",style: TextStyle(color: Colors.deepOrangeAccent,fontFamily: "Poppins",fontSize: 28,fontWeight: FontWeight.bold),),
 
 
           backgroundColor: Colors.white,
