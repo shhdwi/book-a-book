@@ -22,7 +22,7 @@ along the way!
 ## Contributors
 
 
-- Shrish Dwivedi: Login page, chat application, and firebase integration
+- Shrish Dwivedi: Login page, Google Auth, chat application,firebase integration, Overall UI design
 
 - Gaurang Aswal: Splash screen and display screen for buyers
 
@@ -36,8 +36,8 @@ along the way!
 We all learned a great deal about flutter through the ‘Flutter tutorials for Beginners’
 playlist by The Net Ninja. We also watched the Figma playlist for UI/UX design by
 Selfstudy Space on Youtube and both of these were amazing in their explanation and
-detail. Most of us did not have much experience with github or pushing and pulling
-repositories and we learned that over the course of this project from our teammate.
+detail. Most of us did not have much experience with github and we learned 
+that over the course of this project from our teammate Shrish.
 We also tried to incorporate firebase, imagepicker dependency and lottie animations
 by watching tutorials available on youtube. We had daily targets and late night meets
 to come up with creative designs and clever features to integrate. Overall, we had a
