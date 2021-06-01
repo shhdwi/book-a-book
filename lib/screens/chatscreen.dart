@@ -80,42 +80,44 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget chatMessageTile(Timestamp timeStamp, String myProfilePic, String message, bool sendByMe) {
     DateTime date =timeStamp.toDate();
     return Column(
+
       children: [
         Row(
           mainAxisAlignment:
           sendByMe ? MainAxisAlignment.end : MainAxisAlignment.start,
           children: [
             Flexible(
-              child: Row(
-                mainAxisAlignment: sendByMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+              child: Container(
 
-                children: [
-                  Container(
-                      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(24),
-                          bottomRight:
-                          sendByMe ? Radius.circular(5) : Radius.circular(24),
-                          topRight: Radius.circular(24),
-                          bottomLeft:
-                          sendByMe ? Radius.circular(24) : Radius.circular(5),
-                        ),
-                        color: sendByMe ? Colors.orange[200] : Colors.grey[300],
-                      ),
-                      padding: EdgeInsets.symmetric(vertical: 10,horizontal: 16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            message,
-                            style: TextStyle(color: Colors.black, fontFamily: "Poppins"),
-                          ),
-                          Text((date.toString().substring(11,16)),style:TextStyle(fontFamily: "Poppins",color: Colors.black45,fontSize: 8))
-                        ],
-                      )),
-                ],
-              ),
+                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(24),
+                      bottomRight:
+                      sendByMe ? Radius.circular(5) : Radius.circular(24),
+                      topRight: Radius.circular(24),
+                      bottomLeft:
+                      sendByMe ? Radius.circular(24) : Radius.circular(5),
+                    ),
+                    color: sendByMe ? Colors.orange[200] : Colors.grey[300],
+                  ),
+                  padding: EdgeInsets.symmetric(vertical: 10,horizontal: 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      RichText(
+                        maxLines: 5,
+                  overflow: TextOverflow.ellipsis,
+                          text: TextSpan(
+                            text: message,
+                            style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: 15.0,
+                              color: Colors.black,
+                            ),),),
+                      Text((date.toString().substring(11,16)),style:TextStyle(fontFamily: "Poppins",color: Colors.black45,fontSize: 8))
+                    ],
+                  )),
             ),
           ],
         ),
