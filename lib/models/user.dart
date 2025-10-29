@@ -1,4 +1,4 @@
-class UserData{
+class Usedata{
   late String userId;
   UserData({required this.userId});
 
